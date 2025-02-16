@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CB Random Composition Forms Colour Accent</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    let bg = "#f1f1f1";
+    let fg = "#000000";
+    let accent = "#0000ff";
+
+    let padding = 100;
+
+    function setup() {
+      createCanvas(windowWidth, windowHeight);
+      strokeCap(SQUARE);
+      frameRate(2); // Set a low frame rate for a slower effect
+    }
+
+    function draw() {
+      background(bg);
+
+      let colorShape = int(random(3)); // Randomly pick a shape type
+
+      // Line
+      if (colorShape === 0) {
+        stroke(accent);
+      } else {
+        stroke(fg);
+      }
+      strokeWeight(5);
+      let lineX1 = random(padding, width - padding);
+      let lineY1 = random(padding, height - padding);
+      let lineX2 = random(padding, width - padding);
+      let lineY2 = random(padding, height - padding);
+      line(lineX1, lineY1, lineX2, lineY2);
+
+      // Circle
+      noStroke();
+      if (colorShape === 1) {
+        fill(accent);
+      } else {
+        fill(fg);
+      }
+      let circleX = random(padding, width - padding);
+      let circleY = random(padding, height - padding);
+      let diameter = random(200, 300);
+      ellipse(circleX, circleY, diameter);
+
+      // Rectangle (represented as a thick line)
+      if (colorShape === 2) {
+        stroke(accent);
+      } else {
+        stroke(fg);
+      }
+      strokeWeight(100);
+      let line2X1 = random(padding, width - padding);
+      let line2Y1 = random(padding, height - padding);
+      let line2X2 = random(padding, width - padding);
+      let line2Y2 = random(padding, height - padding);
+      line(line2X1, line2Y1, line2X2, line2Y2);
+
+      // Stop after 61 frames (optional)
+      if (frameCount === 61) {
+        noLoop(); // Stop the draw loop
+      }
+    }
+
+    function windowResized() {
+      resizeCanvas(windowWidth, windowHeight);
+    }
+  </script>
+</body>
+</html>
