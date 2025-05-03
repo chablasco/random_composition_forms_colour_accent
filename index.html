@@ -25,7 +25,7 @@
     function setup() {
       createCanvas(windowWidth, windowHeight);
       strokeCap(SQUARE);
-      frameRate(2); // Set a low frame rate for a slower effect
+      frameRate(1); // Set a low frame rate for a slower effect
     }
 
     function draw() {
@@ -71,8 +71,8 @@
       let line2Y2 = random(padding, height - padding);
       line(line2X1, line2Y1, line2X2, line2Y2);
 
-      // Stop after 61 frames (optional)
-      if (frameCount === 61) {
+      // Stop after 161 frames (optional)
+      if (frameCount === 161) {
         noLoop(); // Stop the draw loop
       }
     }
